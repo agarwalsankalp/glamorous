@@ -1,4 +1,5 @@
 import codegen from 'codegen.macro'
+import server from 'glamor/server'
 import domElements from './dom-elements'
 import withTheme from './with-theme'
 import ThemeProvider from './theme-provider'
@@ -46,6 +47,13 @@ Object.assign(
     return comps
   }, {}),
 )
+
+/*
+ * Exporting glamors renderStaticOptimized to use the same scoped glamor
+ */
+Object.assign(glamorous, {
+  server,
+})
 
 function capitalize(s) {
   return s.slice(0, 1).toUpperCase() + s.slice(1)
